@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    "liquibase" : info
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/website
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+  sql:
+    init:
+      platform: postgres
+  jpa:
+    show-sql: true
+    generate-ddl: false
