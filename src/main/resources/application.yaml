@@ -4,6 +4,9 @@ server:
 logging:
   level:
     "liquibase" : info
+sentry:
+  dsn: https://7a9a348dbfaf484a802e9312282d46ff@o1233380.ingest.sentry.io/6382166
+  traces-sample-rate: 1.0
 
 spring:
   datasource:
