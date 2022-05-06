@@ -3,8 +3,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.7.0-SNAPSHOT"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.6.21"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.6.21"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
+}
+
+allOpen {
+    annotations("com.beanary.website.entity")
 }
 
 group = "com.beanary"
@@ -33,7 +39,6 @@ dependencies {
     implementation("io.sentry:sentry-spring-boot-starter:5.7.3")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     runtimeOnly("org.postgresql:postgresql")
 }

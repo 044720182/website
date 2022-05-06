@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-kvp-table
+      id: create-users-table
       author: MYI
       changes:
           - createTable:

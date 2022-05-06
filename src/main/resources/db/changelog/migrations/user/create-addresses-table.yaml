@@ -1,0 +1,79 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-addresses-table
+      author: MYI
+      changes:
+          - createTable:
+              tableName: addresses
+              columns:
+                  - column:
+                      name: id
+                      type: int
+                      autoIncrement: true
+                      constraints:
+                        primaryKey: true
+                        nullable: false
+                  - column:
+                      name: user_id
+                      type: int
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: is_primary
+                      type: boolean
+                      constraints:
+                        nullable: false
+                      defaultValue: false
+                  - column:
+                      name: address
+                      type: varchar(255)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: city
+                      type: varchar(100)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: state
+                      type: varchar(100)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: postal
+                      type: varchar(50)
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: latitude
+                      type: decimal
+                      constraints:
+                        nullable: true
+                  - column:
+                      name: longitude
+                      type: decimal
+                      constraints:
+                        nullable: true
+                  - column:
+                      name: created_at
+                      type: datetime
+                      constraints:
+                        nullable: true
+                  - column:
+                      name: updated_at
+                      type: datetime
+                      constraints:
+                        nullable: true
+          - addForeignKeyConstraint:
+              baseColumnNames: user_id
+              baseTableName: addresses
+              baseTableSchemaName: public
+              constraintName: fk_addresses_users
+              deferrable: true
+              initiallyDeferred: true
+              onDelete: CASCADE
+              onUpdate: RESTRICT
+              referencedColumnNames: id
+              referencedTableName: users
+              referencedTableSchemaName: public
+              validate: true
