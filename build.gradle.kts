@@ -11,6 +11,9 @@ plugins {
 
 allOpen {
     annotations("com.beanary.website.entity")
+    annotation("javax.persistence.Entity")
+    annotation("javax.persistence.Embeddable")
+    annotation("javax.persistence.MappedSuperclass")
 }
 
 group = "com.beanary"
