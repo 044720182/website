@@ -10,7 +10,7 @@ sentry:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/website
+    url: jdbc:postgresql://localhost:5432/db_website
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver

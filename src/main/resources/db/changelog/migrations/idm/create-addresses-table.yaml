@@ -4,7 +4,7 @@ databaseChangeLog:
       author: MYI
       changes:
           - createTable:
-              tableName: addresses
+              tableName: web_addresses
               columns:
                   - column:
                       name: id
@@ -66,7 +66,7 @@ databaseChangeLog:
                         nullable: true
           - addForeignKeyConstraint:
               baseColumnNames: user_id
-              baseTableName: addresses
+              baseTableName: web_addresses
               baseTableSchemaName: public
               constraintName: fk_addresses_users
               deferrable: true
@@ -74,6 +74,6 @@ databaseChangeLog:
               onDelete: CASCADE
               onUpdate: RESTRICT
               referencedColumnNames: id
-              referencedTableName: users
+              referencedTableName: web_users
               referencedTableSchemaName: public
               validate: true

@@ -6,28 +6,26 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity
-@Table(name = "users")
+@Table(name = "web_users")
 class User(
 
-    @javax.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    var id: Long? = null,
-
-    @Column(name = "created_at", updatable = false)
-    @CreationTimestamp
-    var createdAt: LocalDateTime,
-
-    @Column(name = "updated_at", updatable = false)
-    @UpdateTimestamp
-    var updatedAt: LocalDateTime,
+    @Column(name = "username", nullable = false)
+    var username: String? = null,
 
     @Column(name = "firstname", nullable = false)
     var firstname: String? = null,
 
-    @Column(name = "middlename", nullable = false)
+    @Column(name = "middlename", nullable = true)
     var middlename: String? = null,
 
-    @Column(name = "lastname", nullable = false)
-    var lastname: String? = null
-)
+    @Column(name = "lastname", nullable = true)
+    var lastname: String? = null,
+
+    @Column(name = "email", nullable = false)
+    var email: String? = null
+
+) : BaseEntity() {
+    override fun toString(): String {
+        return "User(id=$id, name='$username', email='$email')"
+    }
+}

@@ -4,7 +4,7 @@ databaseChangeLog:
       author: MYI
       changes:
           - createTable:
-              tableName: users
+              tableName: web_users
               columns:
                   - column:
                       name: id
@@ -14,6 +14,12 @@ databaseChangeLog:
                         primaryKey: true
                         nullable: false
                   - column:
+                      name: username
+                      type: varchar(100)
+                      constraints:
+                        nullable: false
+                        unique: true
+                  - column:
                       name: firstname
                       type: varchar(100)
                       constraints:
@@ -22,12 +28,18 @@ databaseChangeLog:
                       name: middlename
                       type: varchar(100)
                       constraints:
-                        nullable: false
+                        nullable: true
                   - column:
                       name: lastname
                       type: varchar(100)
                       constraints:
+                        nullable: true
+                  - column:
+                      name: email
+                      type: varchar(100)
+                      constraints:
                         nullable: false
+                        unique: true
                   - column:
                       name: created_at
                       type: datetime
