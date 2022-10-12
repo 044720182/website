@@ -12,4 +12,6 @@ interface UserRepo: CrudRepository<User, Long> {
     override fun findById(id: Long): Optional<User>
 
     override fun findAll(): List<User>
+
+    fun findByEmail(email: String): List<User>
 }
